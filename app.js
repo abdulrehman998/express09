@@ -2,8 +2,8 @@ const express = require('express')
 const PORT = process.env.PORT || 5000
 const app = express()
 const path = require('path')
-const mongoose = require ('mongoose')
-var cors = require('cors')
+const mongoose = require('mongoose');
+const cors = require("cors");
 
 
 mongoose.connect("mongodb+srv://armalik:1234@cluster0.ymiti.mongodb.net/test")
