@@ -11,6 +11,11 @@ var cors = require('cors')
 mongoose.connect("mongodb+srv://armalik:1234@cluster0.ymiti.mongodb.net/test")
 app.use(cors(["localhost:5000", "localhost:3000"]))
 
+
+app.use('/', express.static(path.join(__dirname, 'web/build')))
+app.use(express.json())
+
+
 const User = mongoose.model('User',{
     name: String,
     email: String,
@@ -18,9 +23,6 @@ const User = mongoose.model('User',{
     created: {type: Date, default: Date.now}
 });
 
-app.use(express.json())
-
-app.use('/', express.static(path.join(__dirname, 'web/build')))
 
 app.get('/api/v1/profile', (req, res) => {
 
